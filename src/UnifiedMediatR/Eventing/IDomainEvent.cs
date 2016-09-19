@@ -15,11 +15,15 @@ namespace UnifiedMediatR.Eventing
     {
     }
 
-    public interface IAsyncDomainEvent : IAsyncNotification
+    public interface IAsyncDomainEvent<TAggregateId> : IAsyncNotification
     {
+        /// <summary>
+        /// The Aggregate Id of the Aggregate root that the domain concerns.
+        /// </summary>
+        TAggregateId Id { get; set; }
     }
 
-    public interface IAsyncDomainEventHandler<in TEvent> : IAsyncNotificationHandler<TEvent> where TEvent : IAsyncDomainEvent
+    public interface IAsyncDomainEventHandler<in TEvent, TAgrregateId> : IAsyncNotificationHandler<TEvent> where TEvent : IAsyncDomainEvent<TAgrregateId>
     {
     }
 }

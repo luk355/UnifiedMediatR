@@ -33,7 +33,7 @@ namespace UnifiedMediatR.Mediator
             _mediator.Publish(domainEvent);
         }
 
-        public async Task PublishAsync(IAsyncDomainEvent domainEvent) 
+        public async Task PublishAsync(IAsyncDomainEvent<TAggregateId> domainEvent) 
         {
             await _mediator.PublishAsync(domainEvent);
         }

@@ -37,7 +37,7 @@ namespace UnifiedMediatR.Mediator
         /// </summary>
         /// <param name="domainEvent"></param>
         /// <returns></returns>
-        Task PublishAsync(IAsyncDomainEvent domainEvent);
+        Task PublishAsync(IAsyncDomainEvent<TAggregateId> domainEvent);
 
         /// <summary>
         /// Publish a system event.
